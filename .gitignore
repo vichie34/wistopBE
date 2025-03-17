@@ -1,0 +1,6 @@
+node_modules
+.env
+privatekey.pem
+publickey.cer
+.env*
+seed data
