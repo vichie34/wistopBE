@@ -22,8 +22,29 @@ import productsRoutes from './routes/admin/products.js';
 // import supportRoutes from './routes/admin/support.js';
 import systemControlRoutes from './routes/admin/systemControl.js';
 import adminTransactionRoutes from './routes/admin/transactions.js';
+const identityVerificationRoutes = require('./routes/identityVerificationRoutes');
 
 dotenv.config();
+
+
+
+
+
+// const express = require('express');
+// const identityVerificationRoutes = require('./routes/identityVerificationRoutes');
+
+// const app = express();
+
+// app.use(express.json());
+
+// // Add the identity verification routes
+
+// module.exports = app;
+
+
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 7000;
@@ -48,6 +69,7 @@ app.use(helmet());
 app.use(cors());
 app.use(limiter);
 app.use(requestLogger);
+app.use('/api', identityVerificationRoutes);
 
 // Endpoints
 app.get('/', async (req, res) => {
