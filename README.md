@@ -152,6 +152,10 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 DATASTATION_AUTH_TOKEN=
 VTU_SERVICE_ACCOUNT==
+NIMC_API_BASE_URL=https://nimc.gov.ng/verification-service-api/
+NIMC_API_KEY=
+MY_IDENTITY_PASS_API_KEY=
+MY_IDENTITY_PASS_BASE_URL=https://developer.myidentitypass.com/products/data-verification/nigeria/mashup
 ```
 
 ### Start development server
