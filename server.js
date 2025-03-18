@@ -26,26 +26,6 @@ const identityVerificationRoutes = require('./routes/identityVerificationRoutes'
 
 dotenv.config();
 
-
-
-
-
-// const express = require('express');
-// const identityVerificationRoutes = require('./routes/identityVerificationRoutes');
-
-// const app = express();
-
-// app.use(express.json());
-
-// // Add the identity verification routes
-
-// module.exports = app;
-
-
-
-
-
-
 const app = express();
 const PORT = process.env.PORT || 7000;
 
