@@ -115,6 +115,8 @@ class ApiError extends Error {
 - MongoDB
 - Safe Haven API credentials
 - SMTP server access
+- NIMC
+- IdentityPass API credentials
 
 ### Installation
 
@@ -181,4 +183,4 @@ MIT License
 
 ## Contact
 
-For inquiries, reach out to [victorchuma@gmail.com]
+For inquiries, reach out to [victorchuma1b3@gmail.com]
