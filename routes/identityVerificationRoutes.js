@@ -1,9 +1,9 @@
-const express = require('express');
-const { verifyIdentityController } = require('../controllers/identityVerificationController');
+// import { Router } from 'express';
+// import { verifyIdentityController } from '../controllers/identityVerificationController.js';
 
-const router = express.Router();
+// const router = Router();
 
-// POST /api/verify-identity
-router.post('/verify-identity', verifyIdentityController);
+// // POST /api/verify-identity
+// router.post('/verify-identity', verifyIdentityController);
 
-module.exports = router;
+// export default router;

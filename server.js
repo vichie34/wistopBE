@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import helmet from 'helmet';
+// import { encode, decode } from './punycode-js.js';
+import punycode from 'node:punycode'
 import cors from 'cors';
 import userRouter from './routes/user.js';
 import { errorHandler, limiter, requestLogger } from './utils/middleware.js';
@@ -13,16 +15,17 @@ import accountRoutes from './routes/account.js';
 import transactionRoutes from './routes/transactions.js';
 import transferRoutes from './routes/transfers.js';
 import { initialize } from './services/safeHavenAuth.js';
-import verifyUserRoute from './Routes/verifyUserRoute.js';
+// import verifyUserRoute from './Routes/verifyUserRoute.js';
+// import identityVerificationRoutes from './routes/identityVerificationRoutes.js';
+
 // admin routes
 import analyticsRoutes from './routes/admin/analytics.js';
-import auditRoutes from './routes/admin/audit.js';
+// import auditRoutes from './routes/admin/audit.js';
 // import notificationsRoutes from './routes/admin/notifications.js';
 import productsRoutes from './routes/admin/products.js';
 // import supportRoutes from './routes/admin/support.js';
 import systemControlRoutes from './routes/admin/systemControl.js';
 import adminTransactionRoutes from './routes/admin/transactions.js';
-const identityVerificationRoutes = require('./routes/identityVerificationRoutes');
 
 dotenv.config();
 
@@ -49,7 +52,8 @@ app.use(helmet());
 app.use(cors());
 app.use(limiter);
 app.use(requestLogger);
-app.use('/api', identityVerificationRoutes);
+// app.use(punycode);
+// app.use('/api', identityVerificationRoutes);
 
 // Endpoints
 app.get('/', async (req, res) => {
@@ -82,7 +86,7 @@ app.use('/api/account', accountRoutes);
 app.use('/api/services', servicesRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/transfers', transferRoutes);
-app.use('/api', verifyUserRoute);
+// app.use('/api', verifyUserRoute);
 
 // admin endpoints
 app.use('/api/admin/system-control', systemControlRoutes);
