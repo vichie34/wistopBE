@@ -13,8 +13,7 @@ if (!mongoConnect) {
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(mongoConnect, {
-      // useNewUrlParser: true,
-      // useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 120000
     });
     console.log(`MongoDB connected successfully: ${conn.connection.host}`);
   } catch (error) {

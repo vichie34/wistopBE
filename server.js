@@ -2,8 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import helmet from 'helmet';
-// import { encode, decode } from './punycode-js.js';
-import punycode from 'node:punycode'
+// import punycode from './node_modules/punycode/punycode.es6.js';
 import cors from 'cors';
 import userRouter from './routes/user.js';
 import { errorHandler, limiter, requestLogger } from './utils/middleware.js';
@@ -52,7 +51,6 @@ app.use(helmet());
 app.use(cors());
 app.use(limiter);
 app.use(requestLogger);
-// app.use(punycode);
 // app.use('/api', identityVerificationRoutes);
 
 // Endpoints
@@ -60,13 +58,9 @@ app.get('/', async (req, res) => {
   res
     .status(200)
     .send(
-      'Welcome to Bold Data. Your one-stop service for Bills Payment and Subscriptions. '
+      'Welcome to Wistop VTU application. Your one-stop service for Bills Payment and Subscriptions. '
     );
 });
-
-// app.listen(7000, () => {
-//   console.log("server listening on port 7000")
-// });
 
 // health endpoint
 app.get('/health', (req, res) => {
@@ -99,6 +93,10 @@ app.use('/api/admin/system', systemControlRoutes);
 
 // error handler
 app.use(errorHandler);
+
+
+// test
+// const decodedString = punycode.decode('https://wistopup-demo.netlify.app');
 
 // Start the server and log a message to the console upon successful start
 app.listen(PORT, () => {
