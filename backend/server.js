@@ -4,8 +4,6 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import passport from 'passport';
 import session from 'express-session';
-import './auth/googleAuth.js'; // Import Google OAuth configuration
-import authRoutes from './auth/authRoutes.js'; // Import authentication routes
 // import punycode from './node_modules/punycode/punycode.es6.js';
 import cors from 'cors';
 import userRouter from './routes/user.js';
@@ -56,9 +54,6 @@ app.use(cors());
 app.use(limiter);
 app.use(requestLogger);
 app.use(express.json());
-app.use(session({ secret: process.env.JWT_SECRET, resave: false, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session())
 // app.use('/api', identityVerificationRoutes);
 
 // Endpoints
@@ -102,8 +97,6 @@ app.use('/api/admin/system', systemControlRoutes);
 // error handler
 app.use(errorHandler);
 
-// Routes
-app.use(authRoutes);
 
 // Start the server and log a message to the console upon successful start
 app.listen(PORT, () => {

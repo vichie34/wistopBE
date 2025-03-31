@@ -26,4 +26,10 @@ router.post(
   authController.googleLogin
 );
 
+// Add Google OAuth callback route
+router.get('/google/callback', (req, res) => {
+  // Google OAuth callback logic
+  res.redirect(process.env.FRONTEND_BASE_URL || '/');
+});
+
 export default router;
